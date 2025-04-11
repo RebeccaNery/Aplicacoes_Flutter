@@ -119,7 +119,9 @@ class _CalculadoraState extends State<Calculadora> {
               },
               child: Text("Calcular")
           ),
-          Text("$_resultado"),
+          SizedBox(height: 20.0),
+          Text("Resultado: ${_resultado != null ? _resultado : ''}"),
+
         ],
       ),
     );
