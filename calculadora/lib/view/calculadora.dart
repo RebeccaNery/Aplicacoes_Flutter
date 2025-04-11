@@ -11,7 +11,7 @@ class Calculadora extends StatefulWidget {
 class _CalculadoraState extends State<Calculadora> {
   var _edtNum1 = TextEditingController();
   var _edtNum2 = TextEditingController();
-  double? _soma;
+  double? _resultado;
   String? _opcaoSelecionada = 'Somar'; //opcao inicial
 
   @override
@@ -52,7 +52,7 @@ class _CalculadoraState extends State<Calculadora> {
               groupValue: _opcaoSelecionada,
               onChanged: (String? value) {
                 setState(() {
-                  _opcaoSelecionada = value;
+                  _opcaoSelecionada = value.toString();
                 });
               },
             ),
@@ -64,7 +64,7 @@ class _CalculadoraState extends State<Calculadora> {
               groupValue: _opcaoSelecionada,
               onChanged: (String? value) {
                 setState(() {
-                  _opcaoSelecionada = value;
+                  _opcaoSelecionada = value.toString();
                 });
               },
             ),
@@ -76,7 +76,7 @@ class _CalculadoraState extends State<Calculadora> {
               groupValue: _opcaoSelecionada,
               onChanged: (String? value) {
                 setState(() {
-                  _opcaoSelecionada = value;
+                  _opcaoSelecionada = value.toString();
                 });
               },
             ),
@@ -88,7 +88,7 @@ class _CalculadoraState extends State<Calculadora> {
               groupValue: _opcaoSelecionada,
               onChanged: (String? value) {
                 setState(() {
-                  _opcaoSelecionada = value;
+                  _opcaoSelecionada = value.toString();
                 });
               },
             ),
@@ -98,12 +98,28 @@ class _CalculadoraState extends State<Calculadora> {
                 setState((){
                   double _num1 = double.parse(_edtNum1.text);
                   double _num2 = double.parse(_edtNum2.text);
-                  _soma = _num1 + _num2;
-                });
+                  switch (_opcaoSelecionada){
+                    case "Somar":
+                      _resultado = _num1 + _num2;
+                      break;
+                    case "Subtrair":
+                      _resultado = _num1 - _num2;
+                      break;
+                    case "Dividir":
+                      if (_num2 != 0){
+                        _resultado = _num1 / _num2;
+                      }else{
+                        print("O denominador não pode ser igual a ZERO. Tente novamente.");
+                      }
+                      break;
+                    case "Multiplicar":
+                      _resultado = _num1 * _num2;
+                      break;
+                }});
               },
               child: Text("Calcular")
           ),
-          Text("Soma = $_soma"),
+          Text("$_resultado"),
         ],
       ),
     );
