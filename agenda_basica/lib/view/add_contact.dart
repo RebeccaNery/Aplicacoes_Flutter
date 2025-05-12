@@ -18,7 +18,7 @@ class _AddContactState extends State<AddContact> {
         onPressed: (){
           Navigator.pop(context);
         },
-        child: Text("Close")
+        child: Card(child: Text("close"),)
       )
     );
   }
