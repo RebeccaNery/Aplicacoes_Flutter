@@ -17,6 +17,31 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("App")
+      ),
+      body: Container(
+        child: ListView.builder(itemBuilder: (context, index){
+          return ListTile(
+            leading: Icon(Icons.ac_unit_sharp),
+            title: Text(contatos[index].nome),
+            subtitle: Text(contatos[index].email),
+            trailing: Icon(Icons.arrow_right),
+            onTap: (){
+              print(contatos[index]);
+            },
+          );
+        },
+          itemCount: contatos.length,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return AddContact();
+            }));
+          }),
+    );
   }
 }
