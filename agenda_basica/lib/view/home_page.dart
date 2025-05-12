@@ -10,7 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+  List<Contato> contatos = [
+    Contato("A", "a@gmail.com")
+    Contato("B", "b@gmail.com")
+  ];
 
   @override
   Widget build(BuildContext context) {
