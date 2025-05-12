@@ -19,12 +19,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("App")
+        title: Text("Agenda")
       ),
       body: Container(
         child: ListView.builder(itemBuilder: (context, index){
           return ListTile(
-            leading: Icon(Icons.ac_unit_sharp),
+            leading: Icon(Icons.account_circle),
             title: Text(contatos[index].nome),
             subtitle: Text(contatos[index].email),
             trailing: Icon(Icons.arrow_right),
@@ -41,7 +41,10 @@ class _HomePageState extends State<HomePage> {
             Navigator.push(context, MaterialPageRoute(builder: (context){
               return AddContact();
             }));
-          }),
+
+          },
+          child: const Icon(Icons.add)
+          ),
     );
   }
 }
